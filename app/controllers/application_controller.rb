@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::API
 	include ActionController::HttpAuthentication::Token::ControllerMethods
 
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  # protect_from_forgery with: :exception
+  
   # Add a before_action to authenticate all requests.
   # Move this to subclassed controllers if you only
   # want to authenticate certain methods.
-  before_action :authenticate
+  
+  # before_action :authenticate
 
   protected
 
@@ -24,7 +29,4 @@ class ApplicationController < ActionController::API
     render json: 'Bad credentials', status: :unauthorized
   end
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  # protect_from_forgery with: :exception
 end

@@ -8,5 +8,9 @@ module Api::V1
       render json: User.all
     end
 
+    def new
+
+    end
+
   end
 end
