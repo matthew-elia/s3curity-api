@@ -1,5 +1,18 @@
 class User < ActiveRecord::Base
-	 # Assign an API key on create
+	 
+  # has_secure_password
+  # attr_accessor :email, :api_key
+
+  # def self.find_or_stub_by(hash={})
+  #   User.find_by(email: hash[:email]) || User.stub(hash)
+  # end
+
+  # def self.stub(hash={})
+  #   if hash[:email]
+  #   end
+  # end
+
+   # Assign an API key on create
   before_create do |user|
     user.api_key = user.generate_api_key
   end
