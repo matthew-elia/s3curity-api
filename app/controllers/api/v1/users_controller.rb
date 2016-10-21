@@ -9,14 +9,9 @@ module Api::V1
     end
 
     def create
-      @user = User.find_or_create_by(email: params[:email])
-      @user.save
-      render :json => @user
-	end
-
-	def get_key
-	  user = User.last
-	  render json: user	
+      user = User.find_or_create_by(email: params[:email])
+      user.save
+      render :json => user
 	end
 
     def show

@@ -1,16 +1,6 @@
 class User < ActiveRecord::Base
 	 
   # has_secure_password
-  # attr_accessor :email, :api_key
-
-  # def self.find_or_stub_by(hash={})
-  #   User.find_by(email: hash[:email]) || User.stub(hash)
-  # end
-
-  # def self.stub(hash={})
-  #   if hash[:email]
-  #   end
-  # end
 
    # Assign an API key on create
   before_create do |user|
@@ -24,4 +14,14 @@ class User < ActiveRecord::Base
       break token unless User.exists?(api_key: token)
     end
   end
+  
+  # def self.find_or_stub_by(hash={})
+  #   User.find_by(email: hash[:email]) || User.stub(hash)
+  # end
+
+  # def self.stub(hash={})
+  #   if hash[:email]
+  #   end
+  # end
+
 end
